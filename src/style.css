@@ -1,0 +1,29 @@
+.square {
+    width: 68px;
+    height: 68px;
+    line-height: 68px;
+    border: 1px solid #999;
+    float: left;
+    font-size: 44px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+
+.square-row:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+
+.button-row {
+    padding-bottom: 10px;
+}
+
+.button {
+    width: 100px;
+}
+
+.button-left {
+    margin-right: 10px;
+}
