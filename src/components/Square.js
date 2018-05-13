@@ -4,14 +4,16 @@
 import React from "react";
 
 class Square extends React.Component {
-    onClick = () => {
-        console.log(`square ${this.props.id} clicked`)
-    };
-
     render(){
+        let className = 'square ';
+
+        if(!this.props.isActive){
+            className += 'square-disabled';
+        }
+
         return (
-            <div onClick={this.onClick} className="square">
-                {this.props.id}
+            <div onClick={this.props.onClick} className={className}>
+                {this.props.value}
             </div>
         )
     }

@@ -5,23 +5,34 @@ import React from 'react'
 import Square from './Square'
 
 class Board extends React.Component {
+    _renderSquare(i) {
+        return (
+            <Square
+                value={this.props.arySquares[i]}
+                index={i}
+                onClick={() => {this.props.onSqureClick(i)}}
+                isActive={this.props.isGameStarted && !this.props.arySquares[i]}
+            />
+        )
+    }
+
     render(){
         return (
             <div>
                 <div className="square-row">
-                    <Square id={1} />
-                    <Square id={2} />
-                    <Square id={3} />
+                    {this._renderSquare(0)}
+                    {this._renderSquare(1)}
+                    {this._renderSquare(2)}
                 </div>
                 <div className="square-row">
-                    <Square id={4} />
-                    <Square id={5} />
-                    <Square id={6} />
+                    {this._renderSquare(3)}
+                    {this._renderSquare(4)}
+                    {this._renderSquare(5)}
                 </div>
                 <div className="square-row">
-                    <Square id={7} />
-                    <Square id={8} />
-                    <Square id={9} />
+                    {this._renderSquare(6)}
+                    {this._renderSquare(7)}
+                    {this._renderSquare(8)}
                 </div>
             </div>
         )
