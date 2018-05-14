@@ -8,7 +8,11 @@ class Square extends React.Component {
         let className = 'square ';
 
         if(!this.props.isActive){
-            className += 'square-disabled';
+            className += ' square-disabled';
+        }
+
+        if(this.props.isWinningSquare){
+            className += ' square-winning';
         }
 
         return (

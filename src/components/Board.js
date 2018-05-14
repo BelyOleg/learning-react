@@ -5,13 +5,32 @@ import React from 'react'
 import Square from './Square'
 
 class Board extends React.Component {
+    _isSquareActive(i){
+        let isSquareActive;
+
+        if(this.props.isGameFinished){
+            isSquareActive = false;
+        } else if(this.props.isGameStarted && !this.props.arySquares[i]){
+            isSquareActive = true;
+        } else {
+            isSquareActive = false;
+        }
+
+        return isSquareActive;
+    }
+
+    _isSquareWinning(i) {
+        return this.props.winningSquares.includes(i);
+    }
+
     _renderSquare(i) {
         return (
             <Square
                 value={this.props.arySquares[i]}
                 index={i}
                 onClick={() => {this.props.onSqureClick(i)}}
-                isActive={this.props.isGameStarted && !this.props.arySquares[i]}
+                isWinningSquare={this._isSquareWinning(i)}
+                isActive={this._isSquareActive(i)}
             />
         )
     }
